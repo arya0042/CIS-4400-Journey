@@ -1,0 +1,92 @@
+This data dictionary provides details about the fields in the "Location" dimension table.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+location_id
+
+Data Type: INT
+Description: Unique identifier for each location.
+Constraints: PRIMARY KEY
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+borough
+
+Data Type: VARCHAR(255)
+Description: Name of the borough associated with the location.
+Constraints: NOT NULL
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+zone
+
+Data Type: VARCHAR(255)
+Description: Name of the TLC Taxi Zone associated with the location.
+Constraints: NOT NULL
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Data Dictionary - Dimension Table: TaxiColor
+
+This data dictionary describes the fields in the "TaxiColor" dimension table.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+taxi_color_id
+
+Data Type: INT
+Description: Unique identifier for each taxi color.
+Constraints: PRIMARY KEY
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+color_name
+
+Data Type: VARCHAR(255)
+Description: Name of the taxi color.
+Constraints: UNIQUE, NOT NULL
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Data Dictionary - Dimension Table: DateInfo
+
+This data dictionary outlines the fields in the "DateInfo" dimension table.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+date_id
+
+Data Type: INT
+Description: Unique identifier for each date.
+Constraints: PRIMARY KEY
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+full_date
+
+Data Type: DATE
+Description: The full date associated with each record.
+Constraints: NOT NULL
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+tempmax
+
+Data Type: DECIMAL
+Description: The temperature recorded for the day.
+Constraints: NOT NULL
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Data Dictionary - Fact Table: Trips
+
+This data dictionary provides information about the fields in the "Trips" fact table.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+trip_id
+
+Data Type: INT
+Description: Unique identifier for each trip.
+Constraints: PRIMARY KEY
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+total_amount
+
+Data Type: DECIMAL
+Description: The total amount charged for the trip.
+Constraints: NOT NULL
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+taxi_color_id
+
+Data Type: INT
+Description: Foreign key referencing the "TaxiColor" dimension table.
+Constraints: References TaxiColor(taxi_color_id)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+location_id
+
+Data Type: INT
+Description: Foreign key referencing the "Location" dimension table.
+Constraints: References Location(location_id)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+date_id
+
+Data Type: INT
+Description: Foreign key referencing the "DateInfo" dimension table.
+Constraints: References DateInfo(date_id)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
