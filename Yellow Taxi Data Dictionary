@@ -1,0 +1,100 @@
+Data Dictionary: Yellow Taxi Trip Data
+
+This data dictionary provides a detailed description of the fields in the yellow taxi trip dataset.
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+VendorID
+
+Description: A code indicating the TPEP (Taxicab Passenger Enhancement Program) provider that supplied the record.
+Values:
+1 = Creative Mobile Technologies, LLC
+2 = VeriFone Inc.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+tpep_pickup_datetime
+
+Description: The date and time when the taxi meter was engaged.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+tpep_dropoff_datetime
+
+Description: The date and time when the taxi meter was disengaged.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Passenger_count
+
+Description: The number of passengers in the vehicle. This is a driver-entered value.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Trip_distance
+
+Description: The elapsed trip distance in miles reported by the taximeter.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PULocationID
+
+Description: TLC Taxi Zone in which the taximeter was engaged.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+DOLocationID
+
+Description: TLC Taxi Zone in which the taximeter was disengaged.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+RateCodeID
+
+Description: The final rate code in effect at the end of the trip.
+Values:
+1 = Standard rate
+2 = JFK
+3 = Newark
+4 = Nassau or Westchester
+5 = Negotiated fare
+6 = Group ride
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Store_and_fwd_flag
+
+Description: Indicates whether the trip record was stored in the vehicle's memory before transmission to the vendor (store and forward).
+Values:
+Y = Store and forward trip
+N = Not a store and forward trip
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Payment_type
+
+Description: A numeric code indicating how the passenger paid for the trip.
+Values:
+1 = Credit card
+2 = Cash
+3 = No charge
+4 = Dispute
+5 = Unknown
+6 = Voided trip
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Fare_amount
+
+Description: The time-and-distance fare calculated by the meter.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Extra
+
+Description: Miscellaneous extras and surcharges, including $0.50 and $1 rush hour and overnight charges.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MTA_tax
+
+Description: $0.50 MTA tax automatically triggered based on the metered rate in use.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Improvement_surcharge
+
+Description: $0.30 improvement surcharge assessed on trips at the flag drop, implemented since 2015.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tip_amount
+
+Description: Tip amount. This field is automatically populated for credit card tips; cash tips are not included.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Tolls_amount
+
+Description: The total amount of all tolls paid during the trip.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Total_amount
+
+Description: The total amount charged to passengers. This excludes cash tips.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Congestion_Surcharge
+
+Description: Total amount collected in the trip for the New York State congestion surcharge.
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Airport_fee
+
+Description: $1.25 fee applicable for pickups only at LaGuardia and John F. Kennedy Airport.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
