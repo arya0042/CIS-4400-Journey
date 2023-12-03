@@ -28,3 +28,6 @@ CREATE TABLE Trips (
     FOREIGN KEY (location_id) REFERENCES Location(location_id),
     FOREIGN KEY (date_id) REFERENCES DateInfo(date_id)
 );
+-- Modify tempmax column to be NOT NULL
+ALTER TABLE DateInfo
+ALTER COLUMN tempmax DECIMAL NOT NULL;
