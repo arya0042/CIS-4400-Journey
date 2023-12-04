@@ -1,0 +1,9 @@
+{
+	"name": "aryanjourney",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "b9596257-2cf1-4054-a958-6a74a35b66bb",
+		"tenantId": "fb01dea1-df09-4b26-9c13-8d5debad2465"
+	}
+}

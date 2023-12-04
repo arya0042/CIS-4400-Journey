@@ -1,0 +1,33 @@
+{
+	"name": "db_date",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "date_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "full_date",
+				"type": "date"
+			},
+			{
+				"name": "tempmax",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "DateInfo"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

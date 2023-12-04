@@ -1,0 +1,44 @@
+{
+	"name": "db_trips",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "trip_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "total_amount",
+				"type": "decimal",
+				"precision": 18,
+				"scale": 0
+			},
+			{
+				"name": "taxi_color_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "location_id",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "date_id",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Trips"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
