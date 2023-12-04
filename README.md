@@ -165,6 +165,123 @@ df_yellow.head(10)
 ```
 Displays the first 10 rows of the final DataFrame `df_yellow`.
 
+Section 14: Read Green Taxi Data
+```python
+file_path_green_jan = r'C:\Users\khand\OneDrive\Desktop\STA 3000\january_green_taxidata.parquet'
+file_path_green_feb = r'C:\Users\khand\OneDrive\Desktop\STA 3000\feburary_green_taxidata.parquet'
+file_path_green_march = r'C:\Users\khand\OneDrive\Desktop\STA 3000\march_green_taxidata.parquet'
+
+df_green_jan = pd.read_parquet(file_path_green_jan)
+df_green_feb = pd.read_parquet(file_path_green_feb)
+df_green_march = pd.read_parquet(file_path_green_march)
+```
+Reads green taxi data from three different Parquet files for January, February, and March and stores them in separate DataFrames.
+
+Section 15: Read Weather Data
+```python
+weather_data = pd.read_csv('C:/Users/khand/OneDrive/Desktop/STA 3000/weather_data.csv', parse_dates=['datetime'])
+```
+Reads weather data from a CSV file and parses the 'datetime' column as dates.
+
+Section 16: Specify Columns to Remove from Green Taxi Data
+```python
+columns_to_remove_green = [list of column names]
+```
+Specifies a list of columns that need to be removed from the green taxi data.
+
+Section 17: Drop Specified Columns from Green Taxi Data
+```python
+df_green_jan = df_green_jan.drop(columns=columns_to_remove_green)
+df_green_feb = df_green_feb.drop(columns=columns_to_remove_green)
+df_green_march = df_green_march.drop(columns=columns_to_remove_green)
+```
+Drops specified columns from each green taxi DataFrame.
+
+Section 18: Concatenate Green Taxi DataFrames Vertically
+```python
+df_green = pd.concat([df_green_jan, df_green_feb, df_green_march], ignore_index=True)
+```
+Concatenates the three green taxi DataFrames vertically, creating a combined DataFrame `df_green`.
+
+Section 19: Rename the 'lpep_pickup_datetime' Column to 'tpep_pickup_datetime'
+```python
+df_green = df_green.rename(columns={'lpep_pickup_datetime': 'tpep_pickup_datetime'})
+```
+Renames the 'lpep_pickup_datetime' column to 'tpep_pickup_datetime' in the green taxi DataFrame.
+
+Section 20: Add a New Column 'Taxi_Color' with Each Cell Filled with 'Green'
+```python
+df_green['Taxi_Color'] = 2
+```
+Adds a new column 'Taxi_Color' to `df_green` and fills each cell with the value 'Green' (represented as 2).
+
+Section 21: Convert 'tpep_pickup_datetime' to Datetime Format
+```python
+df_green['tpep_pickup_datetime'] = pd.to_datetime(df_green['tpep_pickup_datetime'])
+```
+Converts the 'tpep_pickup_datetime' column in `df_green` to datetime format if it's not already.
+
+Section 22: Define the Date Range for Green Taxi
+```python
+start_date_green = '2023-01-01'
+end_date_green = '2023-03-31'
+```
+Specifies the start and end dates for the desired date range for green taxi data.
+
+Section 23: Filter out Rows Outside the Specified Date Range for Green Taxi
+```python
+df_green = df_green[(df_green['tpep_pickup_datetime'] >= start_date_green) & (df_green['tpep_pickup_datetime'] <= end_date_green)]
+```
+Filters out rows in `df_green` that fall outside the specified date range.
+
+Section 24: Reset the Index After Filtering for Green Taxi
+```python
+df_green.reset_index(drop=True, inplace=True)
+```
+Resets the index of `df_green` after filtering, dropping the old index.
+
+Section 25: Add a New Column 'Taxi_Color' with Each Cell Filled with 'Green'
+```python
+df_green['Taxi_Color'] = 2
+```
+Adds a new column 'Taxi_Color' to `df_green` and fills each cell with the value 'Green' (represented as 2).
+
+Section 26: Merge Green Taxi DataFrame with Location Information DataFrame
+```python
+df_green = pd.merge(df_green, location_info_df, left_on='PULocationID', right_on='LocationID', how='left')
+```
+Merges `df_green` with `location_info_df` based on the 'PULocationID' and 'LocationID' columns, using a left join.
+
+Section 27: Drop Redundant Columns for Green Taxi
+```python
+df_green = df_green.drop(columns=['LocationID'])
+```
+Drops specified redundant columns from the merged green taxi DataFrame.
+
+Section 28: Concatenate Yellow and Green Taxi DataFrames Vertically
+```python
+df_combined = pd.concat([df_yellow, df_green], ignore_index=True)
+df_combined = df_combined.drop(columns=['service_zone'])
+```
+Concatenates the yellow and green taxi DataFrames vertically, creating a combined DataFrame `df_combined`. Drops the 'service_zone' column from the combined DataFrame.
+
+Section 29: Remove Rows with PULocationID of Either 265 or 264
+```python
+df_combined = df_combined[(df_combined['PULocationID'] != 265) & (df_combined['PULocationID'] != 264)]
+```
+Removes rows in `df_combined` where the 'PULocationID' is either 265 or 264.
+
+Section 30: Reset Index After Removing Rows
+```python
+df_combined.reset_index(drop=True, inplace=True)
+```
+Resets the index of `df_combined` after removing rows, dropping the old index.
+
+Section 31: Display the First 10 Rows of the Combined DataFrame
+```python
+print(df_combined.head(10))
+```
+Displays the first 10 rows of the final combined DataFrame `df_combined`.
 
 Access to the visualization file can be found [here](https://drive.google.com/file/d/1mff8vnrWLopUcI3tw_Wb_p_5kFnL5WrU/view?usp=sharing)
 
