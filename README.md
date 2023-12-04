@@ -76,4 +76,96 @@ To make the data warehouse accessible to the team, an Azure database named `akha
 
 The Git repository has been updated to reflect these changes, ensuring that all team members have access to the latest scripts and database schema. The SQL scripts for creating the data warehouse, as well as the scripts from previous steps, have been updated accordingly. The fact and dimension tables are defined with surrogate keys for efficient data management and analysis. The deliverables include the data model documentation, SQL scripts, and a fully accessible data warehouse for collaborative team usage.
 
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Section 1: Import Libraries
+```python
+import pandas as pd
+```
+This section imports the Pandas library and assigns it the alias "pd" for easier use in the code.
+
+Section 2: Read Location Information from CSV
+```python
+file_path_location = r'C:\Users\khand\OneDrive\Desktop\STA 3000\ID_Data.csv'
+location_info_df = pd.read_csv(file_path_location)
+```
+Reads location information from a CSV file and stores it in the `location_info_df` DataFrame.
+
+Section 3: Read Yellow Taxi Data
+```python
+file_path_yellow_jan = r'C:\Users\khand\OneDrive\Desktop\STA 3000\january_yellow_taxidata.parquet'
+file_path_yellow_feb = r'C:\Users\khand\OneDrive\Desktop\STA 3000\feburary_yellow_taxidata.parquet'
+file_path_yellow_march = r'C:\Users\khand\OneDrive\Desktop\STA 3000\march_yellow_taxidata.parquet'
+
+df_yellow_jan = pd.read_parquet(file_path_yellow_jan)
+df_yellow_feb = pd.read_parquet(file_path_yellow_feb)
+df_yellow_march = pd.read_parquet(file_path_yellow_march)
+```
+Reads yellow taxi data from three different Parquet files for January, February, and March and stores them in separate DataFrames.
+
+Section 4: Specify Columns to Remove from Yellow Taxi Data
+```python
+columns_to_remove_yellow = [list of column names]
+```
+Specifies a list of columns that need to be removed from the yellow taxi data.
+
+Section 5: Drop Specified Columns from Yellow Taxi Data
+```python
+for col in columns_to_remove_yellow:
+    # Drop columns if they exist in each month's DataFrame
+```
+Iterates through the specified columns and removes them from each yellow taxi DataFrame if they exist.
+
+Section 6: Concatenate Yellow Taxi DataFrames Vertically
+```python
+df_yellow = pd.concat([df_yellow_jan, df_yellow_feb, df_yellow_march], ignore_index=True)
+```
+Concatenates the three yellow taxi DataFrames vertically, creating a combined DataFrame `df_yellow`.
+
+Section 7: Add a New Column 'Taxi_Color' with Each Cell Filled with 'Yellow'
+```python
+df_yellow['Taxi_Color'] = 1
+```
+Adds a new column 'Taxi_Color' to `df_yellow` and fills each cell with the value 'Yellow' (represented as 1).
+
+Section 8: Convert 'tpep_pickup_datetime' to Datetime Format
+```python
+df_yellow['tpep_pickup_datetime'] = pd.to_datetime(df_yellow['tpep_pickup_datetime'])
+```
+Converts the 'tpep_pickup_datetime' column in `df_yellow` to datetime format if it's not already.
+
+Section 9: Define the Date Range for Yellow Taxi
+```python
+start_date_yellow = '2023-01-01'
+end_date_yellow = '2023-03-31'
+```
+Specifies the start and end dates for the desired date range for yellow taxi data.
+
+Section 10: Filter out Rows Outside the Specified Date Range for Yellow Taxi
+```python
+df_yellow = df_yellow[(df_yellow['tpep_pickup_datetime'] >= start_date_yellow) & (df_yellow['tpep_pickup_datetime'] <= end_date_yellow)]
+```
+Filters out rows in `df_yellow` that fall outside the specified date range.
+
+ Section 11: Merge Yellow Taxi DataFrame with Location Information DataFrame
+```python
+df_yellow = pd.merge(df_yellow, location_info_df, left_on='PULocationID', right_on='LocationID', how='left')
+```
+Merges `df_yellow` with `location_info_df` based on the 'PULocationID' and 'LocationID' columns, using a left join.
+
+Section 12: Drop Redundant Columns
+```python
+df_yellow = df_yellow.drop(columns=['LocationID', 'Airport_fee', 'service_zone'])
+```
+Drops specified redundant columns from the merged DataFrame.
+
+ Section 13: Display the First 10 Rows of the Resulting DataFrame
+```python
+df_yellow.head(10)
+```
+Displays the first 10 rows of the final DataFrame `df_yellow`.
+
+
 Access to the visualization file can be found [here](https://drive.google.com/file/d/1mff8vnrWLopUcI3tw_Wb_p_5kFnL5WrU/view?usp=sharing)
+
+
