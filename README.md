@@ -1,6 +1,6 @@
 # CIS-4400-Journey
 
-**Who we are**
+                                      **Who we are**
 
 ![Screenshot 2023-12-04 182135](https://github.com/arya0042/CIS-4400-Journey/assets/145073688/1c922fdf-c6b7-4ee3-bf31-5f71fff90b02)
 
