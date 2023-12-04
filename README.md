@@ -282,6 +282,98 @@ Section 31: Display the First 10 Rows of the Combined DataFrame
 print(df_combined.head(10))
 ```
 Displays the first 10 rows of the final combined DataFrame `df_combined`.
+Section 32: Import Libraries
+```python
+import pandas as pd
+from azure.storage.blob import BlobServiceClient, ContainerClient
+from io import BytesIO
+```
+This section imports necessary libraries, including Pandas for data manipulation, Azure Storage Blob for interacting with Azure storage, and BytesIO for handling binary data.
+
+Section 33: Azure Storage Account Details
+```python
+account_name = 'journeygroup'
+account_key = '2MVcmcztJuQBAB2QkioYpHDfWwQbYgMK4dCxpM59RKa2nUU4TtMs7eoDSymhiSbYdc9aBoFAoqhW+ASte7GP7g=='
+container_name = 'journeydata'
+```
+Defines the Azure Storage Account details, including the account name, account key, and container name.
+
+Section 34: Save to CSV and Upload to Azure Storage Blob
+```python
+def save_to_csv_and_upload(data, csv_filename, blob_filename):
+    # Save to CSV
+    data.to_csv(csv_filename, index=False)
+
+    # Upload to Azure Storage Blob
+    upload_csv_to_blob(csv_filename, blob_filename)
+```
+Defines a function `save_to_csv_and_upload` that takes a DataFrame, saves it to a CSV file, and then uploads the CSV file to Azure Storage Blob.
+
+Section 35: Upload CSV to Azure Storage Blob
+```python
+def upload_csv_to_blob(csv_filename, blob_filename):
+    # Read CSV content
+    with open(csv_filename, 'rb') as file:
+        csv_bytes = file.read()
+
+    # Create a connection to Azure Storage Blob
+    blob_service_client = BlobServiceClient(account_url=f"https://{account_name}.blob.core.windows.net", credential=account_key)
+    container_client = blob_service_client.get_container_client(container_name)
+    blob_client = container_client.get_blob_client(blob_filename)
+
+    # Upload the CSV file to Azure Storage Blob
+    blob_client.upload_blob(csv_bytes, overwrite=True)
+
+    print(f"File uploaded to Azure Storage Blob: {blob_filename}")
+```
+Defines a function `upload_csv_to_blob` that reads the content of a CSV file and uploads it to Azure Storage Blob.
+
+Section 36: Save Location Table Data to CSV
+```python
+location_table = location_info_df[['LocationID', 'Borough', 'Zone']].copy()
+location_table.columns = ['location_id', 'borough', 'zone']
+save_to_csv_and_upload(location_table, 'LocationTable.csv', 'journeydata/LocationTable.csv')
+```
+Extracts location-related columns from `location_info_df`, renames the columns, and saves/upload this information as the Location Table.
+
+Section 37: Save TaxiColor Table Data to CSV
+```python
+taxi_color_table = pd.DataFrame({'taxi_color_id': [1, 2], 'color_name': ['Yellow', 'Green']})
+save_to_csv_and_upload(taxi_color_table, 'TaxiColorTable.csv', 'journeydata/TaxiColorTable.csv')
+```
+Creates a TaxiColor Table DataFrame and saves/upload it.
+
+Section 38: Save DateInfo Table Data to CSV
+```python
+date_info_table = df_combined[['tpep_pickup_datetime']].copy()
+date_info_table['tpep_pickup_datetime'] = pd.to_datetime(date_info_table['tpep_pickup_datetime']).dt.date
+date_info_table = date_info_table.drop_duplicates().reset_index(drop=True)
+date_info_table.reset_index(inplace=True)
+date_info_table.columns = ['date_id', 'full_date']
+save_to_csv_and_upload(date_info_table, 'DateInfoTable.csv', 'journeydata/DateInfoTable.csv')
+```
+Extracts date-related information from `df_combined`, processes it, and saves/upload it as the DateInfo Table.
+
+Section 39: Save Trips Table Data to CSV
+```python
+trips_table = df_combined[['total_amount', 'Taxi_Color', 'PULocationID', 'tpep_pickup_datetime']].copy()
+trips_table.columns = ['total_amount', 'taxi_color_id', 'location_id', 'full_date']
+trips_table['full_date'] = pd.to_datetime(trips_table['full_date']).dt.date
+
+# Assuming date_info_table is available, merge to get date_id
+trips_table = pd.merge(trips_table, date_info_table, left_on='full_date', right_on='full_date', how='left')
+trips_table = trips_table[['total_amount', 'taxi_color_id', 'location_id', 'date_id']]
+
+# Add a new column 'trip_id' with sequential values starting from 1
+trips_table['trip_id'] = range(1, len(trips_table) + 1)
+
+# Reorder columns with 'trip_id' at the beginning
+trips_table = trips_table[['trip_id', 'total_amount', 'taxi_color_id', 'location_id', 'date_id']]
+
+save_to_csv_and_upload(trips_table, 'TripsTable.csv', 'journeydata/TripsTable.csv')
+```
+Processes the trips-related information from `df_combined`, merges it with date information, adds a sequential trip_id, and saves/upload it as the Trips Table.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Access to the visualization file can be found [here](https://drive.google.com/file/d/1mff8vnrWLopUcI3tw_Wb_p_5kFnL5WrU/view?usp=sharing)
 
