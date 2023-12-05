@@ -401,7 +401,11 @@ Processes the trips-related information from `df_combined`, merges it with date 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-We employed Azure Data Factory to seamlessly transfer data from Azure Storage Blob to our designated tables. Leveraging the robust capabilities of Data Factory, we orchestrated an efficient data movement process, ensuring a smooth and reliable data flow. Once the data was successfully extracted, transformed, and loaded into our respective tables, we utilized Power BI to create insightful visualizations and reports. Power BI's intuitive interface and powerful analytical features facilitated our exploration and presentation of the data, allowing for a comprehensive understanding of key trends and patterns. This integrated approach, combining Azure Data Factory for data orchestration and Power BI for visualization, empowered us to derive meaningful insights from the stored information and make informed decisions based on the presented data.
+We employed Azure Data Factory to seamlessly transfer data from Azure Storage Blob to our designated tables. Leveraging the robust capabilities of Data Factory, we orchestrated an efficient data movement process, ensuring a smooth and reliable data flow. Once the data was successfully extracted, transformed, and loaded into our respective tables, we utilized Power BI to create insightful visualizations and reports. Power BI's intuitive interface and powerful analytical features facilitated our exploration and presentation of the data, allowing for a comprehensive understanding of key trends and patterns.
+
+![Journey Data Pipeline](https://github.com/arya0042/CIS-4400-Journey/blob/main/Journey%20Data%20Pipeline.png)
+
+This integrated approach, combining Azure Data Factory for data orchestration and Power BI for visualization, empowered us to derive meaningful insights from the stored information and make informed decisions based on the presented data.
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 **Visualization**
