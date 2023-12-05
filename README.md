@@ -37,6 +37,44 @@ For the NYC taxi analysis project, spanning January to March 2023, data is sourc
 The weather data, fetched through the Visual Crossing API, is locally saved as 'weather_data.csv.' This dual-data approach combines taxi trip details and weather information, enriching the project's depth.  For comprehensive understanding, Yellow and Green taxi data dictionaries are referenced. The Yellow Taxi Data Dictionary is available [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Yellow%20Taxi%20Data%20Dictionary), and the Green Taxi Data Dictionary is accessible [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Green%20Taxi%20Data%20Dictionary)
 To further enhance clarity, the Weather Data Dictionary is also available [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Weather%20Data%20Dictionary). Utilizing Azure Storage Blob ensures a scalable and secure storage solution, facilitating seamless data retrieval and analysis.
 
+```python
+from azure.storage.blob import BlobServiceClient, BlobClient, ContainerClient
+import requests
+import pandas as pd
+import pyarrow.parquet as pq
+from io import BytesIO
+
+# Azure Storage Account details
+account_name = 'aryanstorage2'
+account_key = 'oeEyWCTGkPyZZm33Z8NBg1gMJnz3DEHfNJhhUc9Gyhbxej+5Bv6LgFp1CmFUCEj/2+DKBZiJ5UXI+AStb6l1IA=='
+container_name = 'journeydata'
+
+# Function to upload Parquet file to Azure Storage Blob
+def upload_parquet_to_blob(parquet_url, blob_name):
+    # Download the Parquet file content
+    response = requests.get(parquet_url)
+    parquet_file_content = response.content
+
+    # Create a connection to Azure Storage Blob
+    blob_service_client = BlobServiceClient(account_url=f"https://{account_name}.blob.core.windows.net", credential=account_key)
+    container_client = blob_service_client.get_container_client(container_name)
+    blob_client = container_client.get_blob_client(blob_name)
+
+    # Upload the Parquet file to Azure Storage Blob
+    blob_client.upload_blob(parquet_file_content, overwrite=True)
+
+    print(f"File uploaded to Azure Storage Blob: {blob_name}")
+
+# Example: Upload the yellow_tripdata_2023-01.parquet file
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-01.parquet', 'journeydata/january_yellow_taxidata.parquet')
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-01.parquet', 'journeydata/january_green_taxidata.parquet')
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-02.parquet', 'journeydata/feburary_yellow_taxidata.parquet')
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-02.parquet', 'journeydata/feburary_green_taxidata.parquet')
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2023-03.parquet', 'journeydata/march_yellow_taxidata.parquet')
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2023-03.parquet', 'journeydata/march_green_taxidata.parquet')
+upload_parquet_to_blob('https://d37ci6vzurychx.cloudfront.net/misc/taxi+_zone_lookup.csv', 'journeydata/taxi_zone.csv')
+```
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Storage
 
