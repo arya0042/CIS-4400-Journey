@@ -43,6 +43,9 @@ Storage
 As of December 4, 2023, the data for the NYC taxi analysis project is securely stored in Microsoft Azure Storage Blob. The TLC dataset, comprising monthly Parquet files from January to March 2023, is housed within the 'journeydata' container of the 'aryanstorage2' Azure Storage account. This structured storage system ensures efficient organization, allowing for seamless retrieval and analysis.
 For a visual overview of the stored data, one can explore the Azure Storage Blob through the 'aryanstorage2' account. The contents, including Yellow and Green taxi Parquet files, can be viewed within the 'journeydata' container. Photo images of that can be viewd on Github. Additionally, the Yellow Taxi Data Dictionary, Green Taxi Data Dictionary, and Weather Data Dictionary serve as valuable references for a comprehensive understanding of the datasets. This storage infrastructure not only provides a scalable and secure foundation for ongoing exploration and analysis but also offers a transparent glimpse into the contents via the Azure Storage Blob interface.
 
+<img width="165" alt="Journey Aryan Storage" src="https://github.com/arya0042/CIS-4400-Journey/assets/43891695/59a4cfa7-26e0-40b5-a7e3-ce232578ea97">
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Modeling
 <img width="428" alt="Journey Access Database Model" src="https://github.com/arya0042/CIS-4400-Journey/assets/43891695/66f2fcab-0d76-4d58-ac6b-49001705d9a9">
