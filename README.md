@@ -30,6 +30,10 @@ Business Persona
 The people who will use this system are envisioned to be mainly investors. Investors who either live in or come from outside of New York and are interested in placing their funds into the taxi business. The requirements we have so far should give any user an idea of what the statistics are and help them decide whether or not to invest, whether they are knowledgeable of the NYC area or don't even live in it. Some organizations could be those developing transport applications and need access to this information, perhaps even the taxi company itself could utilize this curated data.
 
 ---
+Data Flow Chart
+<img width="629" alt="image" src="https://github.com/arya0042/CIS-4400-Journey/assets/43891695/8756440c-4196-4a19-8e18-8e90fa0bc801">
+--------------------------------------------------------------------------------------------------------------
+
 Data Sourcing
 
 For the NYC taxi analysis project, spanning January to March 2023, data is sourced from the TLC website for taxi trip records and the Visual Crossing API for weather data. The TLC dataset, organized in monthly Parquet files, is securely stored in Microsoft Azure Storage Blob ('aryanstorage2' account, 'journeydata' container). The Python code efficiently uploads files, maintaining a clear dataset structure.
