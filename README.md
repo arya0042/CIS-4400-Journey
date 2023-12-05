@@ -403,6 +403,9 @@ Processes the trips-related information from `df_combined`, merges it with date 
 
 We employed Azure Data Factory to seamlessly transfer data from Azure Storage Blob to our designated tables. Leveraging the robust capabilities of Data Factory, we orchestrated an efficient data movement process, ensuring a smooth and reliable data flow. Once the data was successfully extracted, transformed, and loaded into our respective tables, we utilized Power BI to create insightful visualizations and reports. Power BI's intuitive interface and powerful analytical features facilitated our exploration and presentation of the data, allowing for a comprehensive understanding of key trends and patterns. This integrated approach, combining Azure Data Factory for data orchestration and Power BI for visualization, empowered us to derive meaningful insights from the stored information and make informed decisions based on the presented data.
 
-Access to the visualization file can be found [here](https://drive.google.com/file/d/1mff8vnrWLopUcI3tw_Wb_p_5kFnL5WrU/view?usp=sharing)
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+**Visualization**
+We utilized Power BI to create Visualization
+<img width="593" alt="Power Bi Visualization" src="https://github.com/arya0042/CIS-4400-Journey/assets/43891695/700eb080-eae2-4e08-9ac2-ba04e4802df1">
 
 
