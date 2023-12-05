@@ -97,7 +97,7 @@ ALTER TABLE DateInfo
 ADD tempmax DECIMAL;
 ```
 
-To make the data warehouse accessible to the team, an Azure database named `akhan00142` was created. You can find images of the database, including the key and screenshots from Azure, [here]([https://github.com/arya0042/CIS-4400-Journey/blob/main/Database%20Images%20with%20key%20and%20azure](https://github.com/arya0042/CIS-4400-Journey/blob/main/Database%20Images%20with%20key%20and%20azure.png)).
+To make the data warehouse accessible to the team, an Azure database named `akhan00142` was created. You can find images of the database, including the key and screenshots from Azure, [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Database%20Images%20with%20key%20and%20azure.png).
 
 The Git repository has been updated to reflect these changes, ensuring that all team members have access to the latest scripts and database schema. The SQL scripts for creating the data warehouse, as well as the scripts from previous steps, have been updated accordingly. The fact and dimension tables are defined with surrogate keys for efficient data management and analysis. The deliverables include the data model documentation, SQL scripts, and a fully accessible data warehouse for collaborative team usage.
 
