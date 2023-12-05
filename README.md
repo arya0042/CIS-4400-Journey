@@ -45,6 +45,7 @@ For a visual overview of the stored data, one can explore the Azure Storage Blob
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Modeling
+<img width="428" alt="Journey Access Database Model" src="https://github.com/arya0042/CIS-4400-Journey/assets/43891695/66f2fcab-0d76-4d58-ac6b-49001705d9a9">
 
 In the process of modeling the data warehouse for the NYC taxi analysis project, I utilized a combination of Microsoft Access for visualization and Microsoft SQL Server Management Studio (SSMS) for creating the actual database. The Access model, which can be viewed [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Aryan%20Khandelwal%20SQL%20relationship%20Model.png), served as a visual guide.
 
