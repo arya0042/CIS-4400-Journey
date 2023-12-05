@@ -2,7 +2,6 @@
 
 ---
 Business Problem
-
 ![Screenshot 2023-12-04 182135](https://github.com/arya0042/CIS-4400-Journey/assets/145073688/1c922fdf-c6b7-4ee3-bf31-5f71fff90b02)
 
 We are *Journey*, a data collection company specializing in transportation analytics. Our company is based in New York City, and our work is always busy due to the ever-changing landscape that is NYC road infrastructure. 
@@ -11,13 +10,11 @@ Traffic has been one of the biggest issues in NYC, especially for taxi drivers i
 
 ---
 Business Impact
-
-Although the risk in expenditure to acquire this data is small, seeing as the data is free to be gathered on the TLC website, there are definite outside risks in this project as laws and competition grow, as well as the ever-worsening traffic crisis. We may not see as much interest in the business of yellow and green taxis as time continues, which would mean less interest in the data that we worked hard to produce. But the benefits to our company are worth the risk if we can sell any of the curated data, which would be a great benefit to our company in increasing our revenue. However, the best-case scenario would be if our data could better the taxi industry with further investments, increasing interest in the foreseeable future and having more customers buy from us.
+Although the risk in expenditure to acquire this data is small, seeing as the data is free to be gathered on the TLC website, there are definite outside risks in this project as laws and competition grow, as well as the ever-worsening traffic crisis. We may not see as much interest in the business of yellow and green taxis as time continues, which would mean less interest in the data that we worked hard to produce. But the benefits to our company are worth the risk if we can sell any of the curated data, which would be a great benefit to our company in increasing our revenue. However, the best-case scenario would be if our data could better the taxi industry with further investments, increasing interest in the foreseeable future, and having more customers buy from us.
 
 ---
 Business Persona
-The 
-
+The people who will use this system are envisioned to be mainly investors. Investors who either live in or come from outside of New York and are interested in placing their funds into the taxi business. The requirements we have so far should give any user an idea of what the statistics are and help them decide whether or not to invest, whether they are knowledgeable of the NYC area or don't even live in it. Some organizations could be those developing transport applications and need access to this information, perhaps even the taxi company itself could utilize this curated data.
 
 ---
 Data Sourcing
