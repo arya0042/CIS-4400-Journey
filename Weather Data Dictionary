@@ -1,1 +1,7 @@
+datetime	
+Description: Shows the Date
+Format: xx/xx/xxxx
 
+tempmax
+Description: Shows the max temp on the Day
+Format: 6.7
