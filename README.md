@@ -4,9 +4,15 @@
 
 ![Screenshot 2023-12-04 182135](https://github.com/arya0042/CIS-4400-Journey/assets/145073688/1c922fdf-c6b7-4ee3-bf31-5f71fff90b02)
 
-We are *Journey*, a Data Collection 
+We are *Journey*, a data collection company specializing in transportation analytics. Our company is based in New York City, and our work is always busy due to the ever-changing landscape that is NYC road infrastructure. 
 
+Business Problem
 
+Traffic has been one of the biggest issues in NYC, especially for taxi drivers in recent years, compounded by new laws and competition that seem to be evergrowing. That is why we have a new focus, which is to gather data from the Taxi & Limousine Commission and present it to clients wishing to invest in taxi medallions and know more info regarding the activity of NYC taxis, or perhaps even used for application development for enterprising companies. These requirements for these customers and potential companies would need to be able to see this data filtered to select either yellow or green taxis, which borough(s), the total trips by taxi type, the total trips by borough, the total trips organized by and by day, and lastly, the revenue by boroughs to see how much is made.
+
+These requirements will offer any interested investors and companies the data needed to understand the taxi business, and to an extent, the city of New York itself. 
+
+---
 Data Sourcing
 For the NYC taxi analysis project, spanning January to March 2023, data is sourced from the TLC website for taxi trip records and the Visual Crossing API for weather data. The TLC dataset, organized in monthly Parquet files, is securely stored in Microsoft Azure Storage Blob ('aryanstorage2' account, 'journeydata' container). The Python code efficiently uploads files, maintaining a clear dataset structure.
 
