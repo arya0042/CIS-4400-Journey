@@ -1,20 +1,22 @@
 # CIS-4400-Journey
 
-**Who we are**
+---
+Business Problem
 
 ![Screenshot 2023-12-04 182135](https://github.com/arya0042/CIS-4400-Journey/assets/145073688/1c922fdf-c6b7-4ee3-bf31-5f71fff90b02)
 
 We are *Journey*, a data collection company specializing in transportation analytics. Our company is based in New York City, and our work is always busy due to the ever-changing landscape that is NYC road infrastructure. 
 
----
-Business Problem
-
-Traffic has been one of the biggest issues in NYC, especially for taxi drivers in recent years, compounded by new laws and competition that seem to be evergrowing. That is why we have a new focus, which is to gather data from the Taxi & Limousine Commission and present it to clients wishing to invest in taxi medallions and know more info regarding the activity of NYC taxis, or perhaps even used for application development for enterprising companies. These requirements for these customers and potential companies would need to be able to see this data filtered to select either yellow or green taxis, which borough(s), the total trips by taxi type, the total trips by borough, the total trips organized by and by day, and lastly, the revenue by boroughs to see how much is made. These requirements will be crucial in setting the scope of our project.
+Traffic has been one of the biggest issues in NYC, especially for taxi drivers in recent years, compounded by new laws and competition that seem to be evergrowing. That is why we have a new focus, which is to gather data from the Taxi & Limousine Commission (TLC) and present it to clients wishing to invest in taxi medallions and know more info regarding the activity of NYC taxis, or perhaps even used for application development for enterprising companies. These requirements for these customers and potential companies would need to be able to see this data filtered to select either yellow or green taxis, which borough(s), the total trips by taxi type, the total trips by borough, the total trips organized by and by day, and lastly, the revenue by boroughs to see how much is made. These requirements will be crucial in setting the scope of our project.
 
 ---
 Business Impact
 
+Although the risk in expenditure to acquire this data is small, seeing as the data is free to be gathered on the TLC website, there are definite outside risks in this project as laws and competition grow, as well as the ever-worsening traffic crisis. We may not see as much interest in the business of yellow and green taxis as time continues, which would mean less interest in the data that we worked hard to produce. But the benefits to our company are worth the risk if we can sell any of the curated data, which would be a great benefit to our company in increasing our revenue. However, the best-case scenario would be if our data could better the taxi industry with further investments, increasing interest in the foreseeable future and having more customers buy from us.
 
+---
+Business Persona
+The 
 
 
 ---
