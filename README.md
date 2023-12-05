@@ -2,6 +2,7 @@
 
 ---
 Business Problem
+
 ![Screenshot 2023-12-04 182135](https://github.com/arya0042/CIS-4400-Journey/assets/145073688/1c922fdf-c6b7-4ee3-bf31-5f71fff90b02)
 
 We are *Journey*, a data collection company specializing in transportation analytics. Our company is based in New York City, and our work is always busy due to the ever-changing landscape that is NYC road infrastructure. 
@@ -10,14 +11,17 @@ Traffic has been one of the biggest issues in NYC, especially for taxi drivers i
 
 ---
 Business Impact
+
 Although the risk in expenditure to acquire this data is small, seeing as the data is free to be gathered on the TLC website, there are definite outside risks in this project as laws and competition grow, as well as the ever-worsening traffic crisis. We may not see as much interest in the business of yellow and green taxis as time continues, which would mean less interest in the data that we worked hard to produce. But the benefits to our company are worth the risk if we can sell any of the curated data, which would be a great benefit to our company in increasing our revenue. However, the best-case scenario would be if our data could better the taxi industry with further investments, increasing interest in the foreseeable future, and having more customers buy from us.
 
 ---
 Business Persona
+
 The people who will use this system are envisioned to be mainly investors. Investors who either live in or come from outside of New York and are interested in placing their funds into the taxi business. The requirements we have so far should give any user an idea of what the statistics are and help them decide whether or not to invest, whether they are knowledgeable of the NYC area or don't even live in it. Some organizations could be those developing transport applications and need access to this information, perhaps even the taxi company itself could utilize this curated data.
 
 ---
 Data Sourcing
+
 For the NYC taxi analysis project, spanning January to March 2023, data is sourced from the TLC website for taxi trip records and the Visual Crossing API for weather data. The TLC dataset, organized in monthly Parquet files, is securely stored in Microsoft Azure Storage Blob ('aryanstorage2' account, 'journeydata' container). The Python code efficiently uploads files, maintaining a clear dataset structure.
 
 The weather data, fetched through the Visual Crossing API, is locally saved as 'weather_data.csv.' This dual-data approach combines taxi trip details and weather information, enriching the project's depth.  For comprehensive understanding, Yellow and Green taxi data dictionaries are referenced. The Yellow Taxi Data Dictionary is available [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Yellow%20Taxi%20Data%20Dictionary), and the Green Taxi Data Dictionary is accessible [here](https://github.com/arya0042/CIS-4400-Journey/blob/main/Green%20Taxi%20Data%20Dictionary)
@@ -25,6 +29,7 @@ To further enhance clarity, the Weather Data Dictionary is also available [here]
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Storage
+
 As of December 4, 2023, the data for the NYC taxi analysis project is securely stored in Microsoft Azure Storage Blob. The TLC dataset, comprising monthly Parquet files from January to March 2023, is housed within the 'journeydata' container of the 'aryanstorage2' Azure Storage account. This structured storage system ensures efficient organization, allowing for seamless retrieval and analysis.
 For a visual overview of the stored data, one can explore the Azure Storage Blob through the 'aryanstorage2' account. The contents, including Yellow and Green taxi Parquet files, can be viewed within the 'journeydata' container. Photo images of that can be viewd on Github. Additionally, the Yellow Taxi Data Dictionary, Green Taxi Data Dictionary, and Weather Data Dictionary serve as valuable references for a comprehensive understanding of the datasets. This storage infrastructure not only provides a scalable and secure foundation for ongoing exploration and analysis but also offers a transparent glimpse into the contents via the Azure Storage Blob interface.
 
